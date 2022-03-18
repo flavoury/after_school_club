@@ -30,6 +30,15 @@
             
             <input class="form-control w-auto text-light" type="text" style="background: none;"  id="searchinput" v-model="search" placeholder="Search" />
           </div>
+            
+            <h6 style="font-family: Poppins; color: white; margin-top: 5px; margin-right: 10px;" >Sort:</h6>
+            <select  class="form-select w-auto text-light bg-dark" aria-label="Default select example" name="sortby" id="subject" v-model="sortby">
+                
+                <option value="subname">Subject</option>
+                <option value="price">Price</option>
+                <option value="location">Location</option>
+                <option value="numberofspace">Availability</option>
+              </select>
           
 </body>
 
