@@ -150,6 +150,15 @@
                 
                 
         },
+             methods: {
+               addToCart(subject) {
+                    this.cart.push(subject);
+                    subject.numberofspaces -= 1
+                },
+                removefromcart(subject){
+                   this.cart.splice(subject, 1)
+                   subject.numberofspaces += 1
+                },
 </body>
 
 </html>
