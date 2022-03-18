@@ -176,6 +176,32 @@
                 submitForm() {
                     alert('Order submitted!')
                 },
+                 canAddToCart(subject) {
+                    return subject.numberofspaces > this.cartCount(subject.id);
+                },
+                allnumeric(){
+               let numbers = /^[0-9]+$/;
+         alert('Please input numeric characters only');
+      document.form1.text1.focus();
+      return false;
+      
+   } ,
+   isValidName(myval) {
+    let validCharactersRegex = /^[a-z\u00C0-\u02AB'´`]+\.?\s([a-z\u00C0-\u02AB'´`]+\.?\s?)+$/;
+ 
+    return validCharactersRegex.test(myval.trim());
+},
+
+                cartCount(id) {
+                    let count = 0;
+                    for (let i = 0; i < this.cart.length; i++) {
+                        if (this.cart[i] === id) {
+                            count++;
+                        }
+                    }
+                    return count;
+                }
+            },
                  
 </body>
 
