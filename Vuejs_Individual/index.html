@@ -104,6 +104,32 @@
                         </div>
                        
                     </div>
+                            
+                            <div style="display: flex; flex-direction:column;">              
+                        <h4 style="margin-left: 15px; font-family:'Poppins' ; color: white;">Checkout</h4>
+                    <div class="card shadow p-3 mb-5 bg-dark rounded" style="width: 40rem; margin-left: 15px;color: white; font-family: Poppins;"  >
+                        <form>
+                            <div class="mb-3">
+                              <label for="firstname" class="form-label">FirstName</label>
+                              <input id="firstName" pattern="[a-zA-Z'-'\s]*" class="form-control text-light" name="firstName" style="background: none;" type="text" v-model="firstName">                            </div>
+                            <div class="mb-3">
+                                <label for="lastname" class="form-label">LastName</label>
+                                <input id="lastName" v-on:click="isValidName()" class="form-control text-light" name="lastName" style="background: none;" type="text" v-model="lastName">                               </div>
+                            <div class="mb-3">
+                              <label for="phoneno"  class="form-label">Phone Number</label>
+                              <input type="number" class="form-control  text-light"  pattern="[7-9]{1}[0-9]{9}" id="phoneno"  style="background: none;" v-model="phonenumber">
+                            </div>
+                            
+                            <button class="btn btn-primary" v-on:click="submitForm" type="submit" :class="{ disabled: isDisabled }" :disabled="isDisabled">Submit</button>                          </form>
+                      </div>
+                    </div>
+                    </div>
+                </div>
+                
+             
+        </main>
+    </div>
+
         
 </body>
 
