@@ -79,6 +79,31 @@
                 </div>
                 </div>
                 </div>
+             <div v-else >
+                        <div v-if="cartItemCount==0" style="color: white; flex-direction: column; justify-content: center; display: flex; align-items: center; font-family: Poppins; font-size: 30px;">
+                           Cart is Empty
+                           <button class="btn btn-primary" v-on:click="showcart" type="submit" >You have no Lessons in your Cart. Continue Shopping</button>                          </form>
+
+                        </div> 
+                          
+                        <div v-else style=" display: flex; flex-direction:row; flex-wrap: wrap; justify-content: space-around; ">
+                         <div style="display: flex; flex-direction:column; flex-wrap: wrap;  ">              
+                      <h4 style="margin-left: 15px; font-family:'Poppins'; color: white;">Cart</h4>
+                      
+
+                    <div v-for="subject in cart"  :key="subject.id" >
+                    <div class="card shadow p-3 mb-5 bg-dark rounded" style="width: 40rem; margin-left: 15px; font-family: Poppins; color: white; "  >
+                          <div style="display: flex; flex-direction:row; flex-wrap: wrap; justify-content: space-around; align-items: center;">
+                        <img v-bind:src="subject.image"  class="card-img-top ps-10" style="width:15%; ">
+                        <p class="card-text">Name: {{subject.subjectname}}</p>
+                        <p class="card-text">Location: {{subject.location}}</p>                 
+                        <p class="card-text">Price:{{subject.price}}</p>
+                        <button class="btn btn-danger" v-on:click="removefromcart(subject)"  style="margin-top: 1px; margin-bottom: 15px;">Remove</button>
+                    </div>
+                        </div>
+                        </div>
+                       
+                    </div>
         
 </body>
 
