@@ -202,6 +202,77 @@
                     return count;
                 }
             },
+            computed: {
+                
+                cartItemCount() {
+                    return this.cart.length;
+                },
+                isDisabled () {
+                 if (this.firstName.length  && this.lastName.length && this.phonenumber.length ) {
+                         return false;
+                     } else {
+                  return true;
+                   }
+                },
+                sortedsubjects() {
+                    let subjectsArray = this.subjects.slice(0);
+                    if (this.search) {
+                        return this.subjects.filter((subject)=>{
+                        return this.search.toLowerCase().split(' ').every(v => subject.subjectname.toLowerCase().includes(v) || subject.location.toLowerCase().includes(v))
+        })
+      }                 
+     
+                    if(this.sortby=="subname"){
+                    function compare(a, b) {
+                        if (a.subjectname.toLowerCase() > b.subjectname.toLowerCase())
+                            return 1;
+                        if (a.subjectname.toLowerCase() < b.subjectname.toLowerCase())
+                            return -1;
+                        return 0;
+                    }
+                }
+                 else if(this.sortby=="price"){
+                    function compare(a, b) {
+                        if (a.price > b.price)
+                            return 1;
+                        if (a.price < b.price)
+                            return -1;
+                        return 0;
+                    }
+                }
+               else if(this.sortby=="location"){
+                    function compare(a, b) {
+                        if (a.location.toLowerCase() > b.location.toLowerCase())
+                            return 1;
+                        if (a.location.toLowerCase() < b.location.toLowerCase())
+                            return -1;
+                        return 0;
+                    }
+                }
+               else if(this.sortby=="numberofspace"){
+                    function compare(a, b) {
+                        if (a.numberofspaces > b.numberofspaces)
+                            return 1;
+                        if (a.numberofspaces < b.numberofspaces)
+                            return -1;
+                        return 0;
+                    }
+                }
+                if (this.ascending) {
+        	      return subjectsArray.reverse(compare)
+        }
+                 
+     
+            
+             return subjectsArray.sort(compare);
+                   
+            },
+           
+            
+    }
+    
+        });
+    </script>
                  
 </body>
 
