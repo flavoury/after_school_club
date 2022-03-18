@@ -39,7 +39,15 @@
                 <option value="location">Location</option>
                 <option value="numberofspace">Availability</option>
               </select>
-          
+           <div v-on:click="ascending = !ascending" style="background: none; outline: none; margin: 20px;"  class="sort-button" >
+                <i v-if="ascending" class="fa-solid fa-arrow-up" style="color: white;"></i>
+                <i v-else class="fa-solid fa-arrow-down" style="color: white;" ></i>
+              </div>
+              <div class="d-flex align-items-center p-2" v-on:click="showcart" v-if="(cartItemCount >= 1 )" >
+                <i class="fas fa-shopping-cart" style="color: white;"></i>
+                <span class="badge rounded-pill badge-notification bg-danger" >{{cartItemCount}}</span>
+                    
+                </div>
 </body>
 
 </html>
